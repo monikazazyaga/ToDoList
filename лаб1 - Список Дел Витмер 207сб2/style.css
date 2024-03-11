@@ -1,0 +1,368 @@
+* {
+  box-sizing: border-box;
+}
+
+body
+{
+  background-color:#0e2e2c;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  color: white;
+
+}
+.header img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.header .title {
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .header img {
+    display: none;
+  }
+
+  .header .title {
+    font-size: 1.2em;
+  }
+}
+
+
+
+
+
+
+
+.task-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  margin: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 18px;
+}
+
+input, button {
+  width: 65%;
+  height: 50px;
+  border: none;
+}
+
+.myInput:focus {
+  border: none;
+  outline: none;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+.cleanBtn {
+  padding: 10px;
+  width: 25%;
+  background: #df4040;
+  color: #FFFFFF;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.cleanBtn:hover {
+  background-color: #b63030;
+}
+
+@media (max-width: 700px) {
+  .task-input {
+    flex-direction: column;
+    align-items: center;
+  }
+  .addBtn,
+  .cleanBtn {
+    width: 65%;
+  }
+}
+
+
+
+.placeholder {
+  display: none;  
+  text-align: center;  
+  color: white;
+}
+
+.hidden {
+  display: block;  
+}
+
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myUL,
+.white-line,
+.task-summary {
+  width: 70%;
+}
+
+.white-line.inactive,
+.task-summary.inactive {
+  display: none;
+}
+
+
+
+
+
+
+
+.edit {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.myUL {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+.myUL li span {
+  color: darkgray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.myUL li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+.myUL li {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Стиль элементов списка */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  list-style-type: none;
+}
+
+
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+
+ul li:hover {
+  background: #ddd;
+}
+.myUL li span.date {
+  display: block;
+  font-size: 10px;
+  text-decoration: none;
+}
+/* При нажатии на кнопку, добавить цвет фона и вычеркнуть текст */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+
+
+.task-count {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #413434;
+  color: white;
+}
+
+.editBtn {
+  padding: 10px;
+  background: #f0ad4e;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editBtn:hover {
+  background-color: #ec971f;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+
+
+
+.white-line {
+   border: 1px solid white;
+}
+
+
+
+
+
+.task-summary {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.task-count {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.count {
+  color: white;
+  margin: 0 30px;
+}
+
+
+.active {
+  font-weight: bold;
+}
+
+.sort-arrow {
+  cursor: pointer;
+
+}
+
+.sort-options {
+  right: -100px; /* начальное значение */
+  background-color: #f1f1f1;
+  min-width: 60px;
+}
+
+.sort-arrow:hover + .sort-options {
+  display: block;
+  right: 20px; /* конечное значение */
+}
+.sort-options a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.sort-options a:hover {
+  background-color: #ddd;
+}
+
+
+
+
+footer {
+  position: fixed;
+   left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #0e2e2c;
+}
+.white-line-footer {
+  border: 1px solid white;
+}
+
+.footer-text {
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+

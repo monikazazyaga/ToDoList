@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список дел</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <img src="icon.png" alt="Иконка">
+    <h1 class="title">Список дел</h1>
+</div>
+
+<div class="task-input">
+    <input type="text" class="myInput" placeholder="Введите дело...">
+    <button onclick="newElement()" class="addBtn">Создать</button>
+    <button onclick="deleteAllElements()" class="cleanBtn">Очистить всё</button>
+</div>
+
+
+<p class="placeholder">Сейчас дел нет</p>
+
+<div class="container">
+<ul class="myUL">
+    <!-- Список дел -->
+</ul>
+
+
+
+<hr class="white-line inactive">
+
+<div class="task-summary inactive">
+    <div class="task-count">
+        <span onclick="filterTasks('completed')" id="completedCount" class="count">Сделано: <span>0</span></span>
+        <span onclick="filterTasks('incomplete')" id="incompleteCount" class="count">Не сделано: <span>0</span></span>
+        <span onclick="filterTasks('all')" id="totalCount" class="count">Всё: <span>0</span></span>
+        <img src="arrow.png" alt="arrow-icon" width="20" height="20" class="sort-arrow" onclick="sortTasks()">
+        <div class="sort-options" style="display: none;">
+            <a href="#" onclick="sortTasksBy('newest')">Самые новые</a>
+            <a href="#" onclick="sortTasksBy('oldest')">Самые старые</a>
+            <a href="#" onclick="sortTasksBy('az')">А-Я</a>
+            <a href="#" onclick="sortTasksBy('za')">Я-А</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<footer>
+    <hr class="white-line-footer">
+    <p class="footer-text">© 2024 Компания Оли Витмер</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
